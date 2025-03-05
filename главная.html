@@ -1,0 +1,918 @@
+<html>
+<head>
+    <link type="image/png" sizes="32x32" rel="icon" href=".\favicon-32x32.png">
+    <meta name ="viewport" content="width=device-width,  initial-scale=1">
+        <style>
+        #registrationPopup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            z-index: 9999;
+            }
+
+        
+            /*регистрация*/
+            .popup {
+            width: 300px;
+            height: 400px;    
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #40b9ff;
+            border: 2px solid #333;
+            z-index: 999;
+            border-radius: 25px;
+            
+           
+            }
+
+
+            .close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            }
+
+            .custom-checkbox {    
+            opacity: 0;
+        
+        }
+        .custom-checkbox+label {
+            display: inline-flex;
+            user-select: none;
+        }
+            .custom-checkbox+label::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 1px solid #3b13ec;
+            border-radius: 5px;
+        }
+        .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+            border-color: #eb3c08;
+            box-shadow: 0 0 0 0.2rem rgba(255, 134, 79, 0.5);
+            cursor: help;
+        } 
+        .custom-checkbox:checked+label::before {
+            border-color: #ff4500;
+            background-color: #ff4500;
+            content: " ✓";
+            font-size: 18px;
+            color: white;
+        }
+
+        /*твоя следущая покупка*/
+        .pocup {
+            border: 1px, solid, black;
+            height: 180px;
+            width: 200px;
+            z-index: 2; 
+            float: left;
+            margin-top: 35px;
+            display: none;
+            
+        }
+
+        @media (min-width: 600px) {
+        .pocup{
+            display: block;
+            
+        }
+
+        }
+
+
+        .naiti {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .naiti{
+                display: block;
+                display: none;
+            }
+        }
+
+        .poisc {
+            outline: none;
+            border-radius: 25px;
+            border: none;
+            width: 600px;
+            height: 45px;
+            background-color:#dfdff9;
+            font-size: large;
+            float: left;
+            margin-left: 100px;
+            padding-left: 20px;
+       
+            margin-top: 0px;
+           
+        }
+
+        @media (max-width: 600px) {
+            .poisc{
+                width: 300px;
+                height: 33px;
+                margin-left: 50px;
+                border-radius: 20px;
+                display: none;
+            }
+        }
+
+
+
+      
+
+        /*шапка*/
+        .ver {
+            background: linear-gradient(45deg, #1d1dfe, #dfdff9);
+            padding-top: 10px;
+            width: 101%;
+            margin-top: -0.5%;
+            margin-left: -7.5px;
+            height: 230px;
+            box-shadow: 0px 2px 5px 2px rgb(94, 94, 110);
+            z-index: 1; 
+            position: relative;
+            display: block;
+        }
+        
+        @media (max-width: 600px) {
+            .ver {
+                height: 75px;
+                width: 104%;
+                margin-top: -1%;
+               /* display: none;*/
+            }
+        }
+
+        /*регистрация*/
+        .reg {
+            float: right;
+            width: 120px;
+            height: 20px;
+            background-color: white;
+            color: rgb(43, 43, 43);
+            padding-top: 3px;
+            text-align: center;
+            margin-right: 50px; 
+            margin-top: 10px;
+            border-radius:10px;
+            font-family: Calidri; 
+            box-shadow: 0px 2px 5px 0px rgb(94, 94, 110); 
+            display: none;
+            display: block;
+
+        }
+
+        @media (max-width: 600px)  {
+            .reg{
+                display: none;
+            }
+          
+        }
+
+        /*вход*/
+        .vhod {
+            float: right;
+            width: 100px;
+            height: 20px;
+            background-color: white;
+            color: rgb(43, 43, 43);
+            padding-top: 3px;
+            text-align: center;
+            margin-right: 50px;
+            margin-top: 10px;
+            border-radius:10px; 
+            font-family: Calidri;
+            box-shadow: 0px 2px 5px 0px rgb(94, 94, 110); 
+            display: block;
+        }
+
+        @media (max-width: 600px)  {
+            .vhod{
+                display: none;
+            }
+          
+        }
+
+
+        .glav {
+            color: #0000cc;
+            float: left;
+            font-family: Calibri;
+            font-size: 30px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        @media (max-width: 600px)  {
+            .glav{
+                display: none;
+            }
+          
+        }
+
+
+        .kateg {
+            color: #0000cc;
+            float: left;
+            font-family: Calibri;
+            font-size: 30px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        @media (max-width: 600px)  {
+            .kateg{
+                display: none;
+            }
+          
+        }
+
+        .korz {
+            color: #0000cc;
+            float: left;
+            font-family: Calibri;
+            font-size: 30px;
+            margin-top: 2px;
+            display: block;
+        }
+
+        @media (max-width: 600px)  {
+            .korz{
+                display: none;
+            }
+          
+        }
+
+
+        .faq {
+            color: #0000cc;
+            float: left;
+            font-family: Calibri;
+            font-size: 30px;
+            margin-top: 2px;
+            display: block;
+        }
+        @media (max-width: 600px)  {
+            .faq{
+                display: none;
+            }
+          
+        }
+
+        .boc {
+            background-color:#cacafe;
+            width: 250px;
+            height: 250%;
+            float: left;
+            margin-left: -7.5px;
+            display: grid;
+        }
+
+        @media (max-width: 600px)  {
+            .boc{
+               width: 66px;
+               top: 50px
+            }
+          
+        }
+
+       
+        .kat{
+            width: 200px;
+            height: 50px;
+            margin-left: 17.5px;
+           
+        }
+        @media (max-width: 600px)  {
+            .kat{
+                width: 50px;
+            }
+        }    
+
+        .glavn{
+            width: 200px;
+            height: 50px;
+            margin-left: 17.5px;
+            top: 5px
+        }
+        @media (max-width: 600px)  {
+            .glavn{
+                width: 50px;
+                top: 15px;
+            }
+        }    
+
+        .kor{
+            width: 200px;
+            height: 50px;
+            
+            margin-left: 17.5px;
+        }
+        @media (max-width: 600px)  {
+            .kor{
+                width: 50px;
+            }
+        }    
+
+        .faqq{
+            width: 200px;
+            height: 50px;
+            
+            margin-left: 17.5px;
+        }
+        @media (max-width: 600px)  {
+            .faqq{
+                width: 50px;
+            }
+        }    
+
+        .knopki{
+            width: 220px;
+            height: 220px;
+            margin-top: 20px;
+            float: left;
+        }
+        @media (max-width: 600px)  {
+            .knopki{
+                margin-top: -0.5%;
+                width: 50px;
+            }
+        }
+
+        @media (max-width: 600px)  {
+            .glavbok{
+                margin-top: -2%;
+            }
+        }
+        .pust{
+            display: none;
+        }
+        @media (max-width: 600px)  {
+            .pust{
+                display: block;
+            }
+        }
+
+        .tovar{
+            
+            width: 1175px;
+            float: left;
+            margin-left: 10%;
+          
+            top:0%;
+        }
+
+
+        @media (max-width: 600px){
+           
+            .tovar{
+             width: 80%;
+             margin-left: 3%;
+            
+            }
+        }
+
+        .inopl{
+            background-color: #dfdfe0;
+            border-radius: 25px;
+            width: 19.8%;
+            height: 330px;
+            margin-left: 50px;
+            margin-top: 50px;
+            float: left;
+        }
+
+        @media (max-width: 600px){
+            .inopl{
+                width: 45%;
+                height: 38%;
+                margin-left: 3%;
+                margin-top: 50px;
+            }
+        }
+        .cher{
+            background-color: #dfdfe0;
+            border-radius: 25px;
+            width: 19.8%;
+            height: 330px;
+            margin-left: 50px;
+            margin-top: 50px;
+            float: left;
+        }
+
+        @media (max-width: 600px){
+            .cher{
+                width: 45%;
+                height: 38%;
+                margin-left: 3%;
+            }
+        }
+
+
+
+
+        .cart1{
+            border-radius: 25px;
+            width: 200px;
+            height: 200px;
+            margin-left: 15.6px;
+            margin-top: 10px;
+        }
+        @media(max-width:600px){
+            .cart1{
+                width: 90%;
+                margin-left: 5%;
+                height: 60%;
+            }
+        }
+
+        .zen1{
+            color: #ff4500;
+            height: 20px;
+            margin-left: 85px;
+            margin-top: -10px;
+            font-size: 14pt;
+        }
+        @media(max-width:600px){
+            .zen1{
+                text-align: center;
+                margin-left: 10px;
+                margin-top: -15px;
+                font-size: 12pt;
+            }
+        }
+       
+
+       
+
+        .kup1{
+            text-align: center;
+            padding-top: 5px;
+            font-family: Calibri;
+        }
+        @media(max-width:600px){
+            .kup1{
+                font-size: 13pt;
+                padding-top: 0px;
+            }
+        }
+
+        .knp1{
+            height: 34px;
+            width: 150px;
+            background-color: white;
+            border-radius: 25px;
+            margin-top: -15px;
+            margin-left: 45px;
+            box-shadow: 0px 2px 5px 0px rgb(94, 94, 110)
+        }
+        @media(max-width:600px){
+            .knp1{
+                width: 88%;
+                margin-left: 8%;
+                margin-top: -13%;
+                height: 10%;
+            }
+        }
+
+
+
+        .chili{
+            background-color: #dfdfe0;
+            border-radius: 25px;
+            width: 19.8%;
+            height: 330px;
+            margin-left: 50px;
+            margin-top: 50px;
+            float: left;
+        }
+
+        @media (max-width: 600px){
+            .chili{
+                width: 45%;
+                height: 38%;
+                margin-left: 3%;
+                margin-top: 50px;
+            }
+        }
+
+
+        .cart2{
+            border-radius: 25px;
+            width: 200px;
+            height: 200px;
+            margin-left: 15.6px;
+            margin-top: 10px;
+        }
+        @media(max-width:600px){
+            .cart2{
+                width: 90%;
+                margin-left: 5%;
+                height: 60%;
+            }
+        }
+
+        .zen2{
+            color: #ff4500;
+            height: 20px;
+            margin-left: 85px;
+            margin-top: -10px;
+            font-size: 14pt;
+        }
+        @media(max-width:600px){
+            .zen2{
+                text-align: center;
+                margin-left: 10px;
+                margin-top: -15px;
+                font-size: 12pt;
+            }
+        }
+       
+
+        .tex2{
+            font-family: Colibri;
+            font-size: 14pt;
+            margin-left: 26px;
+        }
+        @media(max-width:600px){
+            .tex2{
+                text-overflow: ellipsis;
+                font-size: 11pt;
+                text-align: center;
+                margin-top: 0px;
+                margin-left: 7px;
+            }
+        }
+        .tex3{
+            font-family: Colibri;
+            font-size: 14pt;
+            margin-left: 26px;
+        }
+        @media(max-width:600px){
+            .tex3{
+                text-overflow: ellipsis;
+                font-size: 11pt;
+                text-align: center;
+                margin-top: 15px;
+                margin-left: 7px;
+            }
+        }
+
+        .kup2{
+            text-align: center;
+            padding-top: 5px;
+            font-family: Calibri;
+        }
+        @media(max-width:600px){
+            .kup2{
+                font-size: 13pt;
+                padding-top: 0px;
+            }
+        }
+
+        .knp2{
+            height: 34px;
+            width: 150px;
+            background-color: white;
+            border-radius: 25px;
+            margin-top: -15px;
+            margin-left: 45px;
+            box-shadow: 0px 2px 5px 0px rgb(94, 94, 110)
+        }
+        @media(max-width:600px){
+            .knp2{
+                width: 88%;
+                margin-left: 8%;
+                margin-top: 0%;
+                height: 10%;
+            }
+        }
+
+        .xzxz{
+            margin-top: 150px;
+            display: block;
+        }
+        @media(max-width:600px){
+            .xzxz{
+               display: none;
+            }
+        }
+
+
+        .log{
+            padding-left: 0px;
+            border-radius: 25px;
+        }
+        @media (max-width: 600px) {
+            .iog{
+                border-radius: 10px;
+                margin-top:25px;
+                padding-left: 10px;
+            }
+        }
+
+        .saann {
+            margin-left: 60px;
+            width: 180px;
+            height: 180px;
+            float: left;
+            margin-top:20px;
+        }
+
+        @media (max-width: 600px) {
+            .saann{
+                width: 70px;
+                height: 70px; 
+                border-radius: 10px;
+                background-color: white;
+                margin-top: -4px;
+                margin-left: 45%;
+            }
+        }
+
+
+        .preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #e0e0e0;
+            z-index: 1001;
+        }
+
+        .preloader__row {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            margin-top: -35px;
+            margin-left: -35px;
+            text-align: center;
+            animation: preloader-rotate 5s infinite linear;
+        }
+
+        .preloader__item {
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            background-color: #002fff;
+            border-radius: 100%;
+            width: 35px;
+            height: 35px;
+            animation: preloader-bounce 5s infinite ease-in-out;
+        }
+
+        .preloader__item:last-child {
+            top: auto;
+            bottom: 0;
+            animation-delay: 5s;
+        }
+
+        @keyframes preloader-rotate {
+            100% {
+            transform: rotate(360deg);
+            }
+        }
+
+        @keyframes preloader-bounce {
+
+            0%,
+            100% {
+            transform: scale(0);
+            }
+
+            50% {
+            transform: scale(1);
+            }
+        }
+
+        .loaded_hiding .preloader {
+            transition: 5s opacity;
+            opacity: 0;
+        }
+
+        .loaded .preloader {
+            display: none;
+        }
+
+
+    </style>
+</head>
+    <div class="preloader">
+        <div class="preloader__row">
+        <div class="preloader__item"></div>
+        <div class="preloader__item"></div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+        document.body.classList.add('loaded_hiding');
+        window.setTimeout(function () {
+            document.body.classList.add('loaded');
+            document.body.classList.remove('loaded_hiding');
+        }, 1000);
+        }
+    </script>      
+
+
+
+
+
+<body>
+    <div>
+        <div class="ver">
+        <div class="saann">
+          
+            <img src=".\лого.jpg" class="log">
+        </div> 
+        <div class="pocup">
+            <i><h1><p style="color:#dfdff9;  font-family: Calibri; margin-left: 15%; margin-top: -13% ">ТВОЯ</p></h1></i>
+            <i><h1><p style="color:#dfdff9;  font-family: Calibri; margin-left: 15%; margin-top: -10;">СЛЕДУЩАЯ</p></h1></i>
+            <i><h1><p style="color:#dfdff9; font-family: Calibri; margin-left: 15%; margin-top: -7px;">ПОКУПКА</p></h1></i>
+        </div> 
+        <a href=".\Регистрация.html"><div class="reg"><b>Регистрация</b></div></a>
+
+        <div class="vhod"><b>Вход</b></div>
+
+        <div class="xzxz">
+        <div> <h6><input type="search" placeholder="Поиск" class="poisc"></h6></div>
+        <div class="naiti"><p><h2><input type="button" value="Найти" style="border-radius: 25px; width: 110px; height: 45px; border: none; background-color: #ff4500; color: #dfdff9; border: ff4500; margin-left: 30px; box-shadow: 0px 2px 5px 0px rgb(94, 94, 110); float: left;"></h2></p></div>
+        </div>
+          
+    </div>
+
+   
+
+     
+
+    <div class="glavbok">
+    
+        <div class="boc">
+            <div class="knopki">
+                <div class="pust" style="height: 35px;"></div>
+                <a href=".\главная.html">
+                    <div class="glavn">
+                    <div style="float: left;"><img src=".\главная.png"></div>
+                    <div class="glav"><b> ГЛАВНАЯ</b></div>
+                    
+                </div></a>
+
+
+                <div class="kat">
+                    <div style="float: left"><img src=".\категории.png"></div>
+                    <div class="kateg"><b> КАТЕГОРИИ</b></div>
+                </div>
+
+                <a href=".\корзина.html">
+                    <div class="kor">
+                    <div style="float: left;"> <img src=".\корзина.png"></div>
+                    <div class="korz"><b> КОРЗИНА</b></div>
+
+                </div></a>
+
+                <a href=".\faq.html">
+                    <div class="faqq">
+                    <div style="float: left; margin-left: 4px;"> <img src=".\faq.png"></div>
+                    <div class="faq"><b> FAQ</b></div>
+
+                </div></a>
+
+            </div>
+
+
+        
+        </div>
+
+    </div>
+
+
+    <div class="tovar" >
+            
+        <div class="inopl">
+            <img src=".\инопланетяне.png" class="cart1">
+
+            <b><p class="tex2">Носки инопланетяне</p></b>
+
+                <b><i><p class="zen1">5000руб</p></i></b>
+
+                <div class="knp1">
+                    <h3><b><p class="kup1">КУПИТЬ</p></b></h3>
+                </div>
+            
+        </div>
+
+
+
+        <div class="chili">
+            <img src=".\перец.png" class="cart2">
+            
+            <b><p class="tex2">Носки перец "ЧИЛИ"</p></b>
+            <b><i><p class="zen1">5000руб</p></i></b>
+        
+            <div class="knp1">
+            <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+
+
+        <div class="cher">
+            <img src=".\череп.png" class="cart2">
+            
+            <b><p class="tex3">Носки "ЧЕРЕП"</p></b>
+            <b><i><p class="zen1">1000руб</p></i></b>
+            
+            <div class="knp1">
+                <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+
+
+        <div class="cher">
+            <img src=".\булочка.png" class="cart2">
+            
+            <b><p class="tex2">Носки "БУЛОЧКА"</p></b>
+            <b><i><p class="zen1">12500руб</p></i></b>
+            
+            <div class="knp1">
+                <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+
+        <div class="cher">
+            <img src=".\душнила.png" class="cart2">
+            
+            <b><p class="tex2">Носки "ДУШНИЛА"</p></b>
+            <b><i><p class="zen1">1500руб</p></i></b>
+            
+            <div class="knp1">
+                <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+
+        <div class="cher">
+            <img src=".\булочка.png" class="cart2">
+            
+            <b><p class="tex2">Носки "БУЛОЧКА"</p></b>
+            <b><i><p class="zen1">12500руб</p></i></b>
+            
+            <div class="knp1">
+                <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+
+        <div class="inopl">
+            <img src=".\инопланетяне.png" class="cart1">
+
+            <b><p class="tex2">Носки инопланетяне</p></b>
+
+                <b><i><p class="zen1">5000руб</p></i></b>
+
+                <div class="knp1">
+                    <h3><b><p class="kup1">КУПИТЬ</p></b></h3>
+                </div>
+            
+        </div>
+
+
+        <div class="cher">
+            <img src=".\череп.png" class="cart2">
+            
+            <b><p class="tex3">Носки "ЧЕРЕП"</p></b>
+            <b><i><p class="zen1">1000руб</p></i></b>
+            
+            <div class="knp1">
+                <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+
+        <div class="chili">
+            <img src=".\перец.png" class="cart2">
+            
+            <b><p class="tex2">Носки перец "ЧИЛИ"</p></b>
+            <b><i><p class="zen1">5000руб</p></i></b>
+        
+            <div class="knp1">
+            <h3><b><p class="kup2">КУПИТЬ</p></b></h3>
+            </div>
+        </div>
+        
+    </div>
+
+   
+</head>
+</html>    

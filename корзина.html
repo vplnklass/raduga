@@ -1,0 +1,609 @@
+<html>
+    <head>
+        <link type="image/png" sizes="32x32" rel="icon" href=".\favicon-32x32.png">
+      
+        <style>
+                .saann
+                {
+                    object-fit: fill;
+                }
+                
+                .sani
+                {
+                    margin-top: 20%;
+                    margin-left: 50%;
+
+                }
+
+                .custom-checkbox {    
+                
+                opacity: 0;
+            }
+            .custom-checkbox+label {
+                display: inline-flex;
+                user-select: none;
+            }
+                .custom-checkbox+label::before {
+                content: '';
+                width: 30px;
+                height: 30px;
+                border: 1px solid #3b13ec;
+                border-radius: 5px;
+            }
+            .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+                border-color: #eb3c08;
+                box-shadow: 0 0 0 0.2rem rgba(255, 134, 79, 0.5);
+                cursor: help;
+            } 
+            .custom-checkbox:checked+label::before {
+                border-color: #ff4500;
+                background-color: #ff4500;
+                content: " ✓";
+                font-size: 25px;
+                color: white;
+            }
+
+            .custom-checkbox2 {     
+                
+                opacity: 0;
+            }
+            .custom-checkbox2+label {
+                display: inline-flex;
+                user-select: none;
+            }
+                .custom-checkbox2+label::before {
+                content: '';
+                width: 30px;
+                height: 30px;
+                border: 1px solid #3b13ec;
+                border-radius: 5px;
+            }
+            .custom-checkbox2:not(:disabled):not(:checked)+label:hover::before {
+                border-color: #eb3c08;
+                box-shadow: 0 0 0 0.2rem rgba(255, 134, 79, 0.5);
+                cursor: help;
+            } 
+            .custom-checkbox2:checked+label::before {
+                border-color: #ff4500;
+                background-color: #ff4500;
+                content: " ✓";
+                font-size: 25px;
+                color: white;
+                
+            }
+
+            input[type="radio"] {
+                display: none;
+                flex-direction: column;
+               
+                
+            }
+            .custom-radio {
+                display: flex;
+                flex-direction: column;
+             
+                width: 20px;
+                height: 20px;
+                border: 5px solid  #ff4500;
+                border-radius: 50%;
+                cursor: wait;
+                
+                
+            }
+            input[type="radio"]:checked + .custom-radio {
+                border: 5px solid  white;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: #ff4500;
+               
+                
+            }
+
+
+            #registrationPopup {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                z-index: 9999;
+                }
+
+
+
+                .preloader {
+                position: fixed;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                overflow: hidden;
+                background: #fff;
+                z-index: 1001;
+                }
+
+                .preloader__image {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 200px;
+                margin-top: -32px;
+                margin-left: -32px;
+                background: url("./спинер.gif");
+                background-size: cover; 
+                }
+
+                .loaded_hiding .preloader {
+                transition: 5s opacity;
+                opacity: 0;
+                }
+
+                .loaded .preloader {
+                display: none;
+                }
+
+
+        </style>
+    </head>
+    <body>
+
+        <script>
+            window.onload = function () {
+            document.body.classList.add('loaded_hiding');
+            window.setTimeout(function () {
+                document.body.classList.add('loaded');
+                document.body.classList.remove('loaded_hiding');
+            }, 1000);
+            }
+        </script>
+
+
+
+        <div class="preloader">
+            <div class="preloader__image"></div>
+        </div>
+        
+         
+        
+        
+        
+
+        <div style= "background: linear-gradient(45deg, #1d1dfe, #dfdff9); padding-top: 10px; width: 100.8%; margin-top: -0.5%; margin-left: -7.5px; height: 230px; box-shadow: 0px 2px 5px 2px rgb(94, 94, 110); z-index: 1; position: relative;">
+            <div class="saann"; style="border-radius: 25px; background-color: white; border: 1px solid black; margin-top: 20px; margin-left: 60px; width: 180px; height: 180px; float: left;">
+                <img src=".\лого1.jpg" style="padding-top:20px; margin-left: 5px; ">
+            </div> 
+            <div style="border: 1px, solid, black; height: 180px; width: 200px; z-index: 2; float: left; margin-top: 35px;">
+                <i><h1><p style="color:#dfdff9;  font-family: Calibri; margin-left: 15%; margin-top: -13% ">ТВОЯ</p></h1></i>
+                <i><h1><p style="color:#dfdff9;  font-family: Calibri; margin-left: 15%; margin-top: -10;">СЛЕДУЩАЯ</p></h1></i>
+                <i><h1><p style="color:#dfdff9; font-family: Calibri; margin-left: 15%; margin-top: -7px;">ПОКУПКА</p></h1></i>
+            </div> 
+
+            <div style="float: right; width: 120px; height: 20px; background-color: white; color: rgb(43, 43, 43); padding-top: 3px; text-align: center; margin-right: 50px; margin-top: 10px; border-radius:10px; font-family: Calidri; box-shadow: 0px 2px 5px 0px rgb(94, 94, 110); "><b>Регистрация</b></div>
+
+        
+
+            <div style="float: right; width: 100px; height: 20px; background-color: white; color: rgb(43, 43, 43); padding-top: 3px; text-align: center; margin-right: 50px; margin-top: 10px; border-radius:10px; font-family: Calidri; box-shadow: 0px 2px 5px 0px rgb(94, 94, 110); "><b>Вход</b></div>
+
+            <div style="margin-top: 150px;">
+            <div> <h6><input type="search" placeholder="   Поиск" style="border-radius: 25px; border: none; width: 600px; height: 45px; background-color:#dfdff9; font-size: large; float: left; margin-left: 100px;"></h6></div>
+            <div><p><h2><input type="button" value="Найти" style="border-radius: 25px; width: 110px; height: 45px; border: none; background-color: #ff4500; color: #dfdff9; border: ff4500; margin-left: 30px; box-shadow: 0px 2px 5px 0px rgb(94, 94, 110); float: left;"></h2></p></div>
+            </div>
+              
+        </div>
+
+        
+
+       
+
+         
+
+        <div>
+		
+            <div style="background-color:cacafe; width: 250px; height: 100%; float: left; margin-left: -7.5px; display: grid;">
+                <div style="width: 220px; height: 220px;">
+
+                    <a href=".\главная.html"><div style="width: 200px; height: 50px; margin-top: 20px; margin-left: 17.5px;">
+                        <div style="float: left;"><img src=".\главная.png"></div>
+                        <div style="color: #0000cc; float: left; font-family: Calibri; font-size: 30px; margin-top: 5px; "><b> ГЛАВНАЯ</b></div>
+                        
+                    </div></a>
+
+
+                    <div style="width: 200px; height: 50px; margin-left: 17.5px;">
+                        <div style="float: left"><img src=".\категории.png"></div>
+                        <div style="color: #0000cc; float: left; font-family: Calibri; font-size: 30px; margin-top: 2px; "><b> КАТЕГОРИИ</b></div>
+
+                    
+                    </div>
+
+                    <a href=".\корзина.html"><div style="width: 200px; height: 50px; float: left; margin-left: 17.5px;">
+                        <div style="float: left;"> <img src=".\корзина.png"></div>
+                        <div style="color: #0000cc; float: left; font-family: Calibri; font-size: 30px;margin-top: 2px;"><b> КОРЗИНА</b></div>
+
+                    </div></a>
+
+                    <a href=".\faq.html"><div style="width: 200px; height: 50px; margin-left: 17.5px;">
+                        <div style="float: left; margin-left: 4px;"> <img src=".\faq.png"></div>
+                        <div style="color: #0000cc; float: left; font-family: Calibri; font-size: 30px;margin-top: 2px;"><b> FAQ</b></div>
+
+                    </div></a>
+
+                </div>
+
+
+            
+            </div>
+
+        </div>
+
+
+        <!-- оформление заказа-->
+        <div style="width: 750px; height: 90%; float: left; margin-left: 150px;">
+
+            <div style="width: 400px; height: 70px; margin-top: 40px; float: left; margin-left: 40px;">
+
+                <div style="height: 70px; width: 70px; float: left;"> <img src=".\сумка.png"></div>
+                <h1><div style="float: left; color: #0000cc; font-family: Calibri;"> Оформление заказа</div></h1>
+			</div>
+
+
+
+
+
+            <div style="height: 250px; width: 750px; margin-top: 150px; background-color: #ededfb; border-radius: 25px;">
+                <div style="height: 15px;"></div>
+                <div style="width: 220px; height: 220px; background-color: #f9f9ff; border-radius: 25px; border-top: 15px; margin-left: 20px; float: left;">
+                <div style="height: 10px;"></div>
+                    <div style="width: 200px; height: 200px; background-color: #ffffff; border-radius: 25px; margin-left: 10px;">
+                    <img src=".\перец.psd (2).png" style="height: 180px; width: 180px; margin-top: 8px;"> 
+                    </div>
+                </div>
+
+
+                <!--характеристика покупки-->
+                <div style="float: left; width: 300px; height: 220px;">
+                <p style="margin-left: 15px; margin-top: 15px; font-size: x-large; font-family: Georgia, 'Times New Roman', Times, serif;"><b>Носки перец "ЧИЛИ"</b></p>
+                <p style="margin-left: 15px; margin-top: -20px; font-size: 12pt; font-family: Georgia, 'Times New Roman', Times, serif; "><b>Носки молодежные</b></p>
+                <p style="margin-left: 15px; margin-top: -15px; font-size: 12pt; font-family: Georgia, 'Times New Roman', Times, serif;"><b>женские/мужские высокие</b></p>
+                    <div style="height: 32px; width: 92px; background-color: #e1e1ff; margin-left: 15px; border-radius: 20px; margin-top: 102px;">
+                        <input id="increase" type="button" value="+" style="margin-left: 5px; font-size: large; border-radius: 25px; height: 25px; width: 25px; background-color: #f9f9ff; border: #f9f9ff;">
+                        <input id="amount" type="text" value="1" style="width: 20px; background-color: #e1e1ff; border: 1px solid #e1e1ff; font-size: 15pt; margin-top: 2px;">
+                        <input id="increase_2" type="button" value="-" style="font-size: large; border-radius: 25px; height: 25px; width: 25px; background-color: #f9f9ff; border: #f9f9ff;">
+                       
+                        
+                    </div>
+
+
+               
+               
+
+                </div>
+
+
+                <div style="float: left; height: 220px; width: 150px; margin-left: 35px;">
+                    
+                    <input type="checkbox" class="custom-checkbox" id="гал" name="гал" value="yes" style="margin-left: 60%;">
+                    <label for="гал"></label>
+
+                    <p style="color:#ff4500; font-size: 24px; font-family: Calibri; margin-left: 60px; margin-top: 95%;"><b>5000руб.</b></p>
+                    
+                </div>
+
+               
+                    
+                
+            </div>
+
+
+
+
+            <div style="height: 250px; width: 100%; margin-top: 40px; background-color: #ededfb; border-radius: 25px;">
+
+                <div style="height: 15px;"></div>
+                <div style="width: 220px; height: 220px; background-color: #f9f9ff; border-radius: 25px; border-top: 15px; margin-left: 20px; float: left;">
+                <div style="height: 10px;"></div>
+                    <div style="width: 200px; height: 200px; background-color: #ffffff; border-radius: 25px; margin-left: 10px;">
+                    <img src=".\инопл.png" style="height: 180px; width: 180px; margin-top: 8px;"> 
+                    <!--<img src="C:\Users\Erika\Downloads\photo_5343880120676508350_x.jpg" style="height: 180px; width: 180px; margin-top: 8px;"> -->
+                    </div>
+                </div>
+
+                <div style="float: left; width: 330px; height: 220px;">
+                <p style="margin-left: 15px; margin-top: 15px; font-size: x-large; font-family: Georgia, 'Times New Roman', Times, serif;"><b>Носки "Инопланетяне"</b></p>
+                <p style="margin-left: 15px; margin-top: -20px; font-size: 12pt; font-family: Georgia, 'Times New Roman', Times, serif; "><b>Носки женские/мужские хлопковые.</b></p>
+                    <div style="height: 32px; width: 92px; background-color: #e1e1ff; margin-left: 15px; border-radius: 20px; margin-top: 102px;">
+                    
+                    <input id="increas" type="button" value="+" style="margin-left: 5px; font-size: large; border-radius: 25px; height: 25px; width: 25px; background-color: #f9f9ff; border: #f9f9ff;">
+                    <input id="amount_2" type="text" value="1" style="width: 20px; background-color: #e1e1ff; border: 1px solid #e1e1ff; font-size: 15pt; margin-top: 2px;">
+                    <input id="increas_2" type="button" value="-" style="font-size: large; border-radius: 25px; height: 25px; width: 25px; background-color: #f9f9ff; border: #f9f9ff;">
+                    </div>
+
+                
+                </div>
+
+                <div style="float: left; height: 220px; width: 150px; margin-left: 5px;">
+                    <input type="checkbox" class="custom-checkbox2" id="гал2" name="гал2" value="yes" style="margin-left: 60%;">
+                    <label for="гал2"></label>
+
+                    <p style="color:#ff4500; font-size: 24px; font-family: Calibri; margin-left: 55px; margin-top: 95%;"><b>1500руб.</b></p>
+                </div>
+
+                <!--<div style="float: left; height: 110px; width: 150px; margin-left: 5px; background-color: #fa511e;">
+                    <p style="color:#ff4500; font-size: 24px; font-family: Calibri; margin-left: 55px; margin-top: 80px;"><b>5000руб.</b></p>
+                </div>-->
+                    
+                
+                
+
+               
+
+            </div>    
+
+        </div>   
+        
+        
+
+    
+        <!--доставка-->
+
+        <!--правый блок-->
+        <div style="background-color: #ededfb; border-radius: 25px; width: 450px; height: 650px; float: left; margin-left: 150px; margin-top: 50px; ">
+            
+            
+            
+            <!--доставка-->
+            <div style="width: 400px; height: 100px; background-color: #f9f9ff; border-radius: 25px; margin-left: 25px; margin-top: 20px;">
+
+
+                <div style="height: 10px;"></div>
+                <div style="height: 80%; width: 300px; background-color: #f9f9ff; float: left; margin-left: 30px;">
+                <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: large; color: black; margin-top: 2px;"><b>Доставка: пункт выдачи NEXT BUY Г.Шахунья, ул.Чкалова, д.9</b></p>
+                
+                </div>
+
+               
+                <div style="width: 55px; height: 80%; margin-left: 85%;">
+                <img src=".\геолокация.png">
+              
+                </div>
+
+            
+
+
+            </div>
+
+
+
+
+
+            <!--оплата-->
+            <div style="width: 400px; height: 325px; background-color: #f9f9ff;border-radius: 25px;  margin-left: 25px; margin-top: 20px;">
+                <div style="height: 10px;"></div>
+                <p style="margin-left: 30px; font-family: 'Times New Roman', Times, serif; font-size: large; margin-top: 5px;"><b>Способы оплаты</b></p>
+
+
+                <!--блок для оплаты--><div style="width: 350px; height: 40%; background-color: #ededfb; border-radius: 25px; margin-left: 25px;">
+                        <div style="height: 9px; width: 40px;"></div>
+                        <div style="height: 83%; width: 30px;  margin-left: 15px; float: left;">
+                            <!--банки-->
+                            
+                            <div style="height: 30px; width: 30px; border-radius: 5px;">
+                            <img src=".\лого.jpg" style="height: 28px; width: 28px; border-radius: 5px; margin-top: 1px; margin-left: 1px;">
+                            </div>
+                            <div style="height: 30px; width: 30px;  margin-top: 10px; border-radius: 5px;">
+                                <img src=".\сбербанк.jpg" style="height: 28px; width: 28px; border-radius: 5px; margin-top: 1px; margin-left: 1px;">
+                            </div>
+                            <div style="height: 30px; width: 30px; margin-top: 10px; border-radius: 5px;">
+                                <img src=".\тинькоф.jpg" style="height: 28px; width: 28px; border-radius: 5px; margin-top: 1px; margin-left: 1px;">
+                            </div>
+                        </div>
+
+                        <div style="width: 200px; height: 120px;  margin-left: 10px; float: left;">
+                            <div style="height: 30px; width: 200px;">
+                                <div style="height: 5px;"></div>
+                                <p style="font-size: large; margin-top: 5px;"><b>NEXT BUY карта</b></p>
+                            </div>
+                            
+                            <div style="height: 30px; width: 200px; margin-top: 10px;">
+                            <div style="height: 5px;"></div>
+                                <p style="font-size: large; margin-top: 5px;"><b>Сбербанк</b></p>
+                            </div>
+                            <div style="height: 30px; width: 200px; margin-top: 10px;">
+                                <div style="height: 5px;"></div>
+                                <p style="font-size: large; margin-top: 5px;"><b>Тинькофф банк</b></p>
+                            </div>
+                        
+                        </div>
+
+                        <div style="height: 83%; width: 30px;  margin-left: 87%;">
+                          
+                            <div style="height: 30px; width: 30px;">
+                                <label>   
+                                    <input type="radio" name="radio-example">
+                                    <span class="custom-radio"></span>
+                                </label>
+                            </div>
+                            <div style="height: 30px; width: 30px; margin-top: 10px;">
+                                <label>   
+                                    <input type="radio" name="radio-example">
+                                    <span class="custom-radio"></span>
+                                </label>
+                            </div>
+                            <div style="height: 30px; width: 30px; margin-top: 10px;">
+                                <label>   
+                                    <input type="radio" name="radio-example">
+                                    <span class="custom-radio"></span>
+                                </label>
+                            </div>
+                        </div>
+                
+                
+                
+                
+                
+                </div>
+
+
+
+
+
+
+                <div style="width: 180px; height: 50px; margin-left: 30px; margin-top: 23%;">
+                    
+                    <p style="font-size: large;"><b>Доставка  NEXT BUY: 18 июня</b></p>
+                </div>
+
+
+                <div style="width: 400px; height: 40%; margin-left: 2px; margin-top: 30px; float: left;">
+                    
+                    <div style="width: 200px; height: 100%; float: left;">
+
+                        <div style="width: 200px; height: 25%; float: left;">
+                            <p style="margin-top: 12px; font-size: 20pt;"><b>Итого:</b></p>
+                        </div>
+
+                        
+
+                        <div style="width: 200px; height: 25%; float: left;">
+                            <p style="margin-top: 15px; font-size: 15pt;"><b>Товары:</b></p>
+                        </div>
+                    
+                        <div style="width: 200px; height: 25%; float: left;">
+                            <p style="margin-top: 15px; font-size: 15pt;"><b>Доставка:</b></p>
+                        </div>
+                        
+
+                        <a href="#"><div style="width: 400px; height: 25%; background-color: #fa511e; float: left; border-radius: 25px; margin-top: 10px;">
+                           <p style="color: white; margin-left: 15px; font-size: 18pt; margin-top: 5px;">Заказать                                8000руб. </p>
+                        </div></a> 
+
+                    </div>
+
+                    <div style="width: 200px; height: 75%; float: left;">
+                        <div style="width: 200px; height: 33%;  float: left;">
+                            <p style="margin-top: 12px; font-size: 20pt;"><b>              8000руб.</b></p>
+                        </div>
+
+
+                        <div style="width: 200px; height: 33%; float: left;">
+                            <p style="margin-top: 15px; font-size: 15pt; margin-left: 118px;"><b>7500руб.</b></p>
+                        </div>
+
+
+                        <div style="width: 200px; height: 33%; float: left;">
+                            <p style="margin-top: 15px; font-size: 15pt; margin-left: 130px;"><b>500руб.</b></p>
+                        </div>
+                    
+                    
+                    </div>
+                        
+                    
+                        
+
+                    
+
+                    
+
+
+
+                   
+                
+                
+                
+                
+                
+                
+                </div>
+            
+            
+
+
+
+
+            </div>
+
+
+
+        
+        
+        
+        
+        
+        </div>
+
+            
+
+            <script>
+            document.getElementById('increase').addEventListener('click', function() {
+                var numberField = document.getElementById('amount');
+                var currentNumber = parseInt(numberField.value);
+                numberField.value = currentNumber +1;
+            });
+           </script>
+
+            <script>
+                document.getElementById('increase_2').addEventListener('click', function() {
+                    var numberField = document.getElementById('amount');
+                    var currentNumber = parseInt(numberField.value);
+                    
+                    if(currentNumber > 1) {
+                        numberField.value = currentNumber -1;
+                    }
+                });
+            </script>
+
+
+
+            <script>
+                document.getElementById('increas').addEventListener('click', function() {
+                    var numberField = document.getElementById('amount_2');
+                    var currentNumber = parseInt(numberField.value);
+                    numberField.value = currentNumber +1;
+                });
+            </script>
+
+            <script>
+                document.getElementById('increas_2').addEventListener('click', function() {
+                    var numberField = document.getElementById('amount_2');
+                    var currentNumber = parseInt(numberField.value);
+                    
+                    if(currentNumber > 1) {
+                        numberField.value = currentNumber -1;
+                    }
+                });
+            </script>
+
+            
+
+
+          
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>    
